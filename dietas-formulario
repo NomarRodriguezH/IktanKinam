@@ -1,0 +1,87 @@
+<?php
+	require_once 'config.php';
+    session_start();
+	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+	    header("location: login.php");
+	    exit;
+	}
+	$idconsulta = $_SESSION["id"];
+	$consulta="SELECT * FROM usuarios WHERE id = '$idconsulta'  LiMIT 1" ;
+	$res=mysqli_query($con,$consulta);
+	$fila=mysqli_fetch_row($res);
+	$formEnviado= $fila [11]; 
+	if($formEnviado == '1'){
+		header('location: dietas/index.php');
+	}
+
+	echo $_SESSION["username"];
+ ?>
+
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<title></title>
+ 	<style type="text/css">
+ 	body {
+ 		background: #D1913C;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #FFD194, #D1913C);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #FFD194, #D1913C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ 	}
+
+ 	.main {
+ 		font-size: 33px;
+ 		width: 80%;
+ 		margin: auto;
+ 		text-align: center;
+ 		/* From https://css.glass */
+		background: rgba(84, 216, 52, 0.27);
+		border-radius: 16px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(84, 216, 52, 0.3);
+
+ 	}
+
+ 	#sele {
+ 		background-color: yellow;
+ 		font-size: 28px;
+ 	}
+
+ 	</style>
+ 
+ </head>
+ <body>
+ 
+ 	<div class="main">
+ 		<form action="entrenamiento-formulario2.php" method="POST">
+ 			<div>
+ 				<p>Para que puedas acceder al panel de entrenamientos es necesario que escojas a un entrenador registrado, a continuación podrás observar información acerca de los entrenadores disponibles, además deberás completar datos que servían para que el entrenador que escojas pueda asistirte.  </p>
+
+
+ 				 <select  id="sele" name="entrenador" required>
+		    	<option disabled >Selecciona Tu Entrenador</option>
+		    		<?php  
+		    			$sqlC = mysqli_query($con, "SELECT * from entrenador");
+		    			while ($entrenador = mysqli_fetch_row($sqlC)) {?>		
+		    			}
+		    	<option value="<?php echo $entrenador[0];?>" > <?php echo $entrenador[1];?> con especialidad en: <?php echo $entrenador[12] ?></option>
+		    		<?php } ?>
+		    </select> <br><br>
+
+		    <input type="submit" name="" value="Seleccionar">
+
+ 			</div>
+ 		</form>
+
+		
+ 	</div>
+ </body>
+ </html>
+
+ 	
+

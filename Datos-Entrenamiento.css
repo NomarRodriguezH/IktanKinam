@@ -1,0 +1,136 @@
+
+body{
+    color: #9acfea;
+    background: linear-gradient(331deg, #ea9aa7, #9aa7ea);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 4%}
+50%{background-position:100% 97%}
+100%{background-position:0% 4%}
+}
+@-moz-keyframes AnimationName {
+0%{background-position:0% 4%}
+50%{background-position:100% 97%}
+100%{background-position:0% 4%}
+}
+@keyframes AnimationName {
+0%{background-position:0% 4%}
+50%{background-position:100% 97%}
+100%{background-position:0% 4%}
+}
+.Contenedor{
+    background-color: rgba(255, 255, 255, .3);
+    width:500px;
+    height: 800px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.form {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form h1{
+    color: black;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue',
+    Ubuntu, Arial, sans-serif;
+
+}
+
+.form p{
+    color:black;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue',
+    Ubuntu, Arial, sans-serif;
+}
+
+.form select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    max-width: 250px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 42px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #7b7b7b;
+    font-size: 1em;
+    color: #999;
+    font-family:
+            'Quicksand', sans-serif;
+    border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+.form select:hover{
+    background: #9acfea;
+}
+
+.form input{
+    width: 300px;
+    height: 42px;
+    background-color:#FFFFFF;
+    outline: none;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+font-family: 'Quicksand', sans-serif;
+}
+
+.form input:hover{
+    background: #9acfea;
+}
+
+.fill {
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.fill::after {
+    content: "";
+    background-color: #9acfea;
+    border-radius: 20px;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
+
+.fill:hover::after {
+    top: 0px;
+    left: 0px;
+}
